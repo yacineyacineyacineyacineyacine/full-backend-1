@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000
 
+app.use(express.json())
+
 let data = {
     name: "Adel",
 }
@@ -15,8 +17,21 @@ app.get("/dashboard", (req, res) =>{
 });
 
 app.get("/api/data", (req, res) =>{
-    res.status(200).send(data);
+    res.status(200).send(JSON.stringify(data));
 
+})
+
+app.post("/api/data", (req, res) =>{
+       
+    const userData = req.body
+    const user = {
+        name: userData.name
+    }
+
+    res.status(201).send(JSON.stringify({
+        message: "success",
+        data: user
+    }));
 })
 
 
