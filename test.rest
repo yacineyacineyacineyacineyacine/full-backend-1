@@ -1,0 +1,24 @@
+### TEST GET / WEBSITE
+
+GET http://localhost:3000
+
+### TEST GET / DASHBOARD
+
+GET http://localhost:3000/dashboard
+
+### TEST GET / API/DATA
+
+GET http://localhost:3000/api/data
+
+
+### TEST POST DATA
+
+POST http://localhost:3000/api/data
+Content-Type: application/json
+
+{
+    "name": "hadrine"
+}
+
+### TEST DELETE DATA
+DELETE http://localhost:3000/api/data
