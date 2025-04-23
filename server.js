@@ -6,6 +6,9 @@ app.get("/", (req, res)=>{
     res.send("hello world")
 });
 
+console.log("hello nodemoon");
+
+
 
 app.listen(PORT, ()=>{
     console.log(`server running on ${PORT}`);
