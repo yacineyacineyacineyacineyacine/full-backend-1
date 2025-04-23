@@ -4,9 +4,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
-let data = {
-    name: "Adel",
-}
+let data = [ "Adel"]
 
 app.get("/", (req, res)=>{
     res.send("<h1>home page</h1>")
@@ -23,14 +21,21 @@ app.get("/api/data", (req, res) =>{
 
 app.post("/api/data", (req, res) =>{
        
-    const userData = req.body
-    const user = {
-        name: userData.name
-    }
+    const user = req.body
+   
+    data.push(user.name)
 
     res.status(201).send(JSON.stringify({
         message: "success",
-        data: user
+        data: data
+    }));
+});
+
+app.delete("/api/data", (req, res) => {
+    const name =  data.pop();
+    res.status(201).send(JSON.stringify({
+        message: "success",
+        data: name
     }));
 })
 
