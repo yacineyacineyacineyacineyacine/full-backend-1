@@ -6,7 +6,11 @@ app.get("/", (req, res)=>{
     res.send("hello world")
 });
 
-console.log("hello nodemoon");
+app.get("/dashboard", (req, res) =>{
+    res.status(200).send("hi")
+})
+
+
 
 
 
